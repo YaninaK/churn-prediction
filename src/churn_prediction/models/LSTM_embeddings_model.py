@@ -21,7 +21,7 @@ METRICS = [
 ]
 
 
-def get_model(
+def get_LSTM_model(
     input_sequence_length: int,
     n_features: int,
     n_units: int,
