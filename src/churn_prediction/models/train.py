@@ -99,9 +99,4 @@ def data_preprocessing_pipeline(
         save_scaler_num(scaler_num, path)
         save_selected_features(selected_features, path)
 
-    return (
-        lstm_artifacts,
-        nn_model_dataset,
-        scaler_num,
-        selected_features,
-    )
+    return lstm_artifacts, nn_model_dataset, selected_features
