@@ -41,15 +41,6 @@ def load_data(
     return data
 
 
-def seq_padding(x, T=3):
-    x = x.tolist()
-    if len(x) < T:
-        n = T - len(x)
-        return x + n * [0]
-
-    return x
-
-
 def generate_dataset(df, vars_to_drop: Optional[list] = None) -> pd.DataFrame:
     if vars_to_drop is None:
         vars_to_drop = VARS_TO_DROP
@@ -72,3 +63,12 @@ def generate_dataset(df, vars_to_drop: Optional[list] = None) -> pd.DataFrame:
     )
 
     return pd.concat([agg_const, agg_add], axis=1)
+
+
+def seq_padding(x, T=3):
+    x = x.tolist()
+    if len(x) < T:
+        n = T - len(x)
+        return x + n * [0]
+
+    return x
