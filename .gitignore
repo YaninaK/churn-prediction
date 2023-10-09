@@ -1,5 +1,10 @@
 # Data and model folders
-
+/data/02_intermediate
+/data/03_primary
+/data/04_feature
+/data/05_model_input
+/data/06_model_output
+/models/
 /include/
 
 # Byte-compiled / optimized / DLL files
