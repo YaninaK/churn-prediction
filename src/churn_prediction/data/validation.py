@@ -16,7 +16,7 @@ def train_test_split(
         df[[TARGET_NAME]],
         test_size=test_size,
         random_state=random_state,
-        stratify=df[["target"]],
+        stratify=df[[TARGET_NAME]],
     )
 
     return X_train, X_valid, y_train, y_valid
