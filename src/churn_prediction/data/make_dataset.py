@@ -7,8 +7,9 @@ logger = logging.getLogger(__name__)
 
 __all__ = ["load_dataset"]
 
-PATH = "data/01_raw/"
-DATA_PATH = PATH + "telco-customer-churn.csv"
+PATH = ""
+FOLDER = "data/01_raw/"
+DATA_PATH = "telco-customer-churn.csv"
 
 ID = "customerid"
 VARS_TO_DROP = [
@@ -20,9 +21,18 @@ VARS_TO_DROP = [
 ]
 
 
-def load_data(data_path: Optional[str] = None) -> pd.DataFrame:
+def load_data(
+    path: Optional[str] = None,
+    folder: Optional[str] = None,
+    data_path: Optional[str] = None,
+) -> pd.DataFrame:
+
+    if path is None:
+        path = PATH
+    if folder is None:
+        folder = FOLDER
     if data_path is None:
-        data_path = DATA_PATH
+        data_path = path + folder + DATA_PATH
 
     logging.info(f"Reading data from {data_path}...")
 
