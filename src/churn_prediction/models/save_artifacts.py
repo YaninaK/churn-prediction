@@ -16,11 +16,11 @@ FOLDER_2 = "data/02_intermediate/"
 FOLDER_3 = "data/03_primary/"
 
 FOLDER_4 = "data/04_feature/"
-SCALER_LSTM_PATH = FOLDER_5 + "scaler_lstm.joblib"
+SCALER_LSTM_PATH = FOLDER_4 + "scaler_lstm.joblib"
 SCALER_NUM_PATH = FOLDER_4 + "scaler_num.joblib"
 SELECTED_FEATURES_PATH = FOLDER_4 + "selected_features_nn.joblib"
 
-FOLDER_5 = "data/05_model_input/"
+FOLDER_5 = "data/05_model_input/" 
 SEQ_TRAIN_PATH = FOLDER_5 + "seq_train.npy"
 SEQ_VALID_PATH = FOLDER_5 + "seq_valid.npy"
 TRAIN_PATH = FOLDER_5 + "train.parquet.gzip"
