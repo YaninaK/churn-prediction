@@ -13,7 +13,7 @@ def train_test_split(
 
     X_train, X_valid, y_train, y_valid = sklean_train_test_split(
         df.drop(TARGET_NAME, axis=1).fillna(0),
-        df[TARGET_NAME],
+        df[[TARGET_NAME]],
         test_size=test_size,
         random_state=random_state,
         stratify=df[["target"]],
