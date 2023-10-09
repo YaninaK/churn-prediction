@@ -47,10 +47,13 @@ SELECTED_NUMERIC_FEATURES = [
 
 def data_preprocessing_pipeline(
     data: pd.DataFrame,
+    path: Optional[str] = None,
     categorical_variables: Optional[list] = None,
     selected_numeric_features: Optional[list] = None,
     save_artifacts=True,
 ):
+    if path is None:
+        path = PATH
     if categorical_variables is None:
         categorical_variables = CATEGORICAL_VARIABLES
     if selected_numeric_features is None:
@@ -91,10 +94,10 @@ def data_preprocessing_pipeline(
     if save_artifacts:
         logging.info("Saving artifacts...")
 
-        save_lstm_artifacts(lstm_artifacts)
-        save_nn_model_dataset(nn_model_dataset)
-        save_scaler_num(scaler_num)
-        save_selected_features(selected_features)
+        save_lstm_artifacts(lstm_artifacts, path)
+        save_nn_model_dataset(nn_model_dataset, path)
+        save_scaler_num(scaler_num, path)
+        save_selected_features(selected_features, path)
 
     return (
         lstm_artifacts,
