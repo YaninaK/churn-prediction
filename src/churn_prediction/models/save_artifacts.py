@@ -21,7 +21,7 @@ SCALER_NUM_PATH = FOLDER_4 + "scaler_num.joblib"
 SELECTED_NUMERIC_FEATURES_PATH = FOLDER_4 + "selected_numeric_features_nn.joblib"
 SELECTED_FEATURES_PATH = FOLDER_4 + "selected_features_nn.joblib"
 
-FOLDER_5 = "data/05_model_input/" 
+FOLDER_5 = "data/05_model_input/"
 SEQ_TRAIN_PATH = FOLDER_5 + "seq_train.npy"
 SEQ_VALID_PATH = FOLDER_5 + "seq_valid.npy"
 TRAIN_PATH = FOLDER_5 + "train.parquet.gzip"
@@ -95,7 +95,7 @@ def save_selected_features(
     selected_numeric_features: list,
     selected_features: list,
     path: Optional[str] = None,
-    selected_numeric_features: Optional[str] = None,
+    selected_numeric_features_path: Optional[str] = None,
     selected_features_path: Optional[str] = None,
 ):
     logging.info("Saving selected_features...")
