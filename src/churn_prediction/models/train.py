@@ -97,6 +97,6 @@ def data_preprocessing_pipeline(
         save_lstm_artifacts(lstm_artifacts, path)
         save_nn_model_dataset(nn_model_dataset, path)
         save_scaler_num(scaler_num, path)
-        save_selected_features(selected_features, path)
+        save_selected_features(selected_numeric_features, selected_features, path)
 
     return lstm_artifacts, nn_model_dataset, selected_features

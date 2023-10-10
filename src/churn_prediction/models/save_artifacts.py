@@ -18,6 +18,7 @@ FOLDER_3 = "data/03_primary/"
 FOLDER_4 = "data/04_feature/"
 SCALER_LSTM_PATH = FOLDER_4 + "scaler_lstm.joblib"
 SCALER_NUM_PATH = FOLDER_4 + "scaler_num.joblib"
+SELECTED_NUMERIC_FEATURES_PATH = FOLDER_4 + "selected_numeric_features_nn.joblib"
 SELECTED_FEATURES_PATH = FOLDER_4 + "selected_features_nn.joblib"
 
 FOLDER_5 = "data/05_model_input/" 
@@ -91,15 +92,20 @@ def save_scaler_num(
 
 
 def save_selected_features(
+    selected_numeric_features: list,
     selected_features: list,
     path: Optional[str] = None,
+    selected_numeric_features: Optional[str] = None,
     selected_features_path: Optional[str] = None,
 ):
     logging.info("Saving selected_features...")
 
     if path is None:
         path = PATH
+    if selected_numeric_features is None:
+        selected_numeric_features = SELECTED_NUMERIC_FEATURES_PATH
     if selected_features_path is None:
         selected_features_path = SELECTED_FEATURES_PATH
 
+    joblib.dump(selected_numeric_features, selected_numeric_features_path, 3)
     joblib.dump(selected_features, selected_features_path, 3)
