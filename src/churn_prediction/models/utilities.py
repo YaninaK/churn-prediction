@@ -93,3 +93,21 @@ def plot_prc(name, labels, predictions, **kwargs):
     plt.grid(True)
     ax = plt.gca()
     ax.set_aspect("equal")
+
+
+def plot_lift(name, labels, predictions, **kwargs):
+    labels["pred"] = predictions
+    a = labels.sort_values(by="pred", ascending=False)
+
+    ths = [int(i) for i in np.arange(0, 1, 0.01) * len(a)]
+    lift = []
+    for i in ths[1:]:
+        n = a["churn"][:i].mean() / a["churn"].mean()
+        lift.append(n)
+    lift.append(1)
+
+    plt.plot(lift, label=name, linewidth=2, **kwargs)
+    plt.ylabel("Lift")
+    plt.title("Model Lift Curve")
+    plt.grid(True)
+    ax = plt.gca()
