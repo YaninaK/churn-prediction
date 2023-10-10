@@ -102,8 +102,8 @@ def save_selected_features(
 
     if path is None:
         path = PATH
-    if selected_numeric_features is None:
-        selected_numeric_features = SELECTED_NUMERIC_FEATURES_PATH
+    if selected_numeric_features_path is None:
+        selected_numeric_features_path = SELECTED_NUMERIC_FEATURES_PATH
     if selected_features_path is None:
         selected_features_path = SELECTED_FEATURES_PATH
 
