@@ -30,7 +30,7 @@ def store(
     joblib.dump(history, filepath_history)
 
 
-def load(filename_model: str, filename_history: str, path: str = "default"):
+def load(filename_model: str, path: str = "default"):
     if path == "default":
         path = models_path()
 
@@ -39,12 +39,7 @@ def load(filename_model: str, filename_history: str, path: str = "default"):
     logger.info(f"Loading model from {filepath_model}")
     model = tf.keras.models.load_model(filepath_model)
 
-    filepath_history = os.path.join(path, filename_history + ".joblib")
-
-    logger.info(f"Loading model from {filepath_history}")
-    history = joblib.load(filepath_history)
-
-    return model, history
+    return model
 
 
 def models_path() -> str:
