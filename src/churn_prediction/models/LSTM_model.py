@@ -1,4 +1,5 @@
 import logging
+import pandas as pd
 import tensorflow as tf
 
 
@@ -64,7 +65,7 @@ def get_ts_embeddings_model(model):
     return emb_model
 
 
-def get_ts_embeddings(df, seq, emb_model):
+def get_ts_embeddings(df: pd.DataFrame, seq, emb_model) -> pd.DataFrame:
     emb_lstm = emb_model.predict(seq)
     cols = [f"ts_emb_{i}" for i in range(emb_lstm.shape[1])]
 
