@@ -32,9 +32,9 @@ def main():
     )
     argparser.add_argument(
         "-m",
-        "--model_path",
+        "--artifacts_path",
         required=False,
-        default="models/",
+        default="",
         help="model store path",
     )
     argparser.add_argument(
@@ -65,11 +65,11 @@ def main():
 
     logging.info("Preprocessing data...")
 
-    test_features, test_labels = preprocessing_pipeline(data)
+    test_features, test_labels = preprocessing_pipeline(data, args.artifacts_path)
 
     logging.info("Loading the model...")
 
-    lstm_model = load(args.model_name, args.model_path)
+    lstm_model = load(args.model_name, args.artifacts_path)
 
     logging.info("Performing inference...")
 
