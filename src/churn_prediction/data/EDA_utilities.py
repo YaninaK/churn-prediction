@@ -14,7 +14,7 @@ def get_correlated_features(
                 print(corr_, numeric_variables[i], numeric_variables[j])
 
 
-def plot_ks_test(df: pd.DataFrame, feature: str): 
+def plot_ks_test(df: pd.DataFrame, feature: str, churn, no_churn): 
     df_ks = pd.DataFrame()
     df_ks[feature] = np.sort(df[feature].unique())
     df_ks["F_no_churn"] = df_ks[feature].apply(lambda x: np.mean(no_churn <= x))
