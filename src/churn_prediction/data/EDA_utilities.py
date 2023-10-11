@@ -1,7 +1,11 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 
-def get_correlated_features(df, numeric_variables, threshold=0.95):
+def get_correlated_features(
+    df: pd.DataFrame, numeric_variables: list, threshold = 0.95
+):
     corr = df[numeric_variables].corr()
     for i in range(len(numeric_variables)):
         for j in range(i + 1, len(numeric_variables)):
@@ -10,7 +14,7 @@ def get_correlated_features(df, numeric_variables, threshold=0.95):
                 print(corr_, numeric_variables[i], numeric_variables[j])
 
 
-def plot_ks_test(df, feature, control=""):
+def plot_ks_test(df: pd.DataFrame, feature: str): 
     df_ks = pd.DataFrame()
     df_ks[feature] = np.sort(df[feature].unique())
     df_ks["F_no_churn"] = df_ks[feature].apply(lambda x: np.mean(no_churn <= x))
