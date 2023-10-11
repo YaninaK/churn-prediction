@@ -3,7 +3,7 @@ import tensorflow as tf
 
 logger = logging.getLogger(__name__)
 
-__all__ = ["generate_LSTM_model"]
+__all__ = ["generate_LSTM_embeddings_model"]
 
 
 METRICS = [
