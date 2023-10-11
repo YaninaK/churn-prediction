@@ -42,6 +42,8 @@ SELECTED_NUMERIC_FEATURES = [
     "numberofcomplaints",
     "age",
     "unpaidbalance",
+    "percentagecalloutsidenetwork",
+    "seq_avg_max",
 ]
 
 
