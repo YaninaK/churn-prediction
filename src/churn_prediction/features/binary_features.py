@@ -9,7 +9,7 @@ __all__ = ["map_categorical_features"]
 
 def map_categorical_features(df: pd.DataFrame) -> pd.DataFrame:
 
-    logging.info("Mapping categorical features features...")
+    logging.info("Mapping categorical features...")
 
     X = df.copy()
     X["customersuspended"] = X["customersuspended"].map({"Yes": 1, "No": 0})
