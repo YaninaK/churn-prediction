@@ -8,7 +8,7 @@ __all__ = ["generate_LSTM_model"]
 
 
 METRICS = [
-    tf.keras.metrics.BinaryCrossentropy(name="cross entropy"),  
+    tf.keras.metrics.BinaryCrossentropy(name="cross entropy"),
     tf.keras.metrics.MeanSquaredError(name="Brier score"),
     tf.keras.metrics.TruePositives(name="tp"),
     tf.keras.metrics.FalsePositives(name="fp"),
@@ -54,3 +54,18 @@ def get_LSTM_model(
     )
 
     return model
+
+
+def get_ts_embedings_model(model):
+    sharing_input = model.get_layer("lstm_inputs").get_output_at(0)
+    sharing_output = model.get_layer("lstm_output").get_output_at(0)
+    emb_model = tf.keras.Model(sharing_input, sharing_output)
+
+    return emb_model
+
+
+def get_ts_embeddings(df, seq, emb_model):
+    emb_lstm = emb_model.predict(seq)
+    cols = [f"ts_emb_{i}" for i in range(emb_lstm.shape[1])]
+
+    return pd.DataFrame(emb_lstm, index=df.index, columns=cols)
