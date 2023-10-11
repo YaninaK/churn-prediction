@@ -56,7 +56,7 @@ def get_LSTM_model(
     return model
 
 
-def get_ts_embedings_model(model):
+def get_ts_embeddings_model(model):
     sharing_input = model.get_layer("lstm_inputs").get_output_at(0)
     sharing_output = model.get_layer("lstm_output").get_output_at(0)
     emb_model = tf.keras.Model(sharing_input, sharing_output)
