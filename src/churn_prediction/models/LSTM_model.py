@@ -4,11 +4,11 @@ import tensorflow as tf
 
 logger = logging.getLogger(__name__)
 
-__all__ = ["generate_LSTM_embeddings_model"]
+__all__ = ["generate_LSTM_model"]
 
 
 METRICS = [
-    tf.keras.metrics.BinaryCrossentropy(name="cross entropy"),  # same as model's loss
+    tf.keras.metrics.BinaryCrossentropy(name="cross entropy"),  
     tf.keras.metrics.MeanSquaredError(name="Brier score"),
     tf.keras.metrics.TruePositives(name="tp"),
     tf.keras.metrics.FalsePositives(name="fp"),
