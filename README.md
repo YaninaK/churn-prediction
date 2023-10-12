@@ -10,11 +10,11 @@
 
 Из датасета исключены признаки noadditionallines и year - это постоянные величины.
 
-Данные представлены за 3 месяца, но значение целевой функции не изменяется во времени. На заданном промежутке времени варьируют только признаки totalcallduration и avgcallduration.
+Данные представлены за 3 месяца, но значения целевой функции не изменяется во времени. На заданном промежутке времени варьируют только признаки totalcallduration и avgcallduration.
 
 Доступны данные по 9525 клиентам. Выборка несбалансированна: отток клиентов составляет 9%.
 
-Разбивку на обучающую, и тестовую выборки будем осуществлять по уникальным идентификационным номерам клиентов с сохранением пропорции между значениями целевой переменной ([train_test_data_split](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/validation.py)).
+Разбивку на обучающую и тестовую выборки будем осуществлять по уникальным идентификационным номерам клиентов с сохранением пропорции между значениями целевой переменной ([train_test_data_split](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/validation.py)).
 
 Создадим датасет, где в качестве индекса будет выступать id клиента ([generate_dataset](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/make_dataset.py)).
 
@@ -38,9 +38,9 @@ Notebook c разведочным анализом данных и отборо�
 
 Для временных признаков totalcallduration и avgcallduration были сгенерированны ембеддинги с помощью [модели LSTM](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/models/LSTM_model.py)
 
-Для признака state были сгенерированы ембеддинги с помощью tensorflow.keras.layers.StringLookup, tensorflow.keras.layers.Embedding, и полносвязных слоев нейросетевой модели ([fit_transform_embeddings, transform_embeddings](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/models/embeddings_tf.py)).
+Для признака state были сгенерированы ембеддинги с помощью tensorflow.keras.layers.StringLookup, tensorflow.keras.layers.Embedding и полносвязных слоев нейросетевой модели ([fit_transform_embeddings, transform_embeddings](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/models/embeddings_tf.py)).
 
-Признаки education и occupation были закодированы с помощью встроенной функции в tensorflow.keras.layers.StringLookup ([fit_transform_one_hot_encoding, transform_one_hot_encoding](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/models/embeddings_tf.py)).
+Признаки education и occupation были закодированы с помощью встроенной функции one_hot в tensorflow.keras.layers.StringLookup ([fit_transform_one_hot_encoding, transform_one_hot_encoding](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/models/embeddings_tf.py)).
 
 
 * Признаки age, numberofcomplaints и unpaidbalance ожидаемо отобрались и статистическим методами, и деревянными моделями.
@@ -57,7 +57,7 @@ Notebook c разведочным анализом данных и отборо�
 
 * Непрерывные признаки annualincome, callingnum, monthlybilledamount, numdayscontractequipmentplanexpiring, penaltytoswitch, percentagecalloutsidenetwork, totalminsusedinlastmonth не прошли отбор с помощью критерия Колмогорова — Смирнова и не выглядят достаточно привлекательными, хотя и отобрались деревянными моделями.
 
-* Baseline AUC для модели оттока составил 0.70.
+* Baseline AUC для модели оттока составил 0.7055.
 
 
 ### 2.3. Трансформация признаков
