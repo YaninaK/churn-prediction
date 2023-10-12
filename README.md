@@ -8,13 +8,13 @@
 
 ###  2.1. Формирование датасета
 
-Из датасета исключены признаки noadditionallines и year - они не изменяется.
+Из датасета исключены признаки noadditionallines и year - это постоянные величины.
 
-Данные представлены за 3 месяца, но значение целевой функции не изменяется во времени. На заданном промежутке времени изменяются только признаки totalcallduration и avgcallduration.
+Данные представлены за 3 месяца, но значение целевой функции не изменяется во времени. На заданном промежутке времени варьируют только признаки totalcallduration и avgcallduration.
 
 Доступны данные по 9525 клиентам. Выборка несбалансированна: отток клиентов составляет 9%.
 
-Разбивку на обучающую, и тестовую выборки будем осуществляять по уникальным идентификационным номерам клиентов с сохранением пропорции между значениями целевой переменной ([train_test_data_split](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/validation.py)).
+Разбивку на обучающую, и тестовую выборки будем осуществлять по уникальным идентификационным номерам клиентов с сохранением пропорции между значениями целевой переменной ([train_test_data_split](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/validation.py)).
 
 Создадим датасет, где в качестве индекса будет выступать id клиента ([generate_dataset](https://github.com/YaninaK/churn-prediction/blob/main/src/churn_prediction/data/make_dataset.py)).
 
