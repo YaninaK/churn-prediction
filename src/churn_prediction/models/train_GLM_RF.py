@@ -62,7 +62,8 @@ EMBEDDINGS_DIM = 4
 
 ONE_HOT_ENCODING_LIST = ["education", "occupation"]
 
-DROP_LIST = [    
+DROP_LIST = [ 
+    ID,   
     TARGET_NAME,
     "seq_total",
     "seq_avg",
