@@ -14,6 +14,8 @@ from data.make_dataset import generate_dataset
 from features.binary_features import map_categorical_features
 from features.time_series_features import transform_seq
 
+from models.serialize import load
+
 
 logger = logging.getLogger(__name__)
 
